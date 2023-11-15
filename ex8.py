@@ -8,8 +8,17 @@ resultats = {
     "Kévin Choin": 19
 }
 
-for eleve, note in resultats.items():
-    print("L'élève", eleve, "a obtenu la note de", note)
+# Trouver la note la plus élevée
+meilleure_note = max(resultats.values())
 
-meilleur_eleve = max(resultats, key=resultats.get)
-print("La meilleure note est obtenue par", meilleur_eleve, "avec un", resultats[meilleur_eleve], "/ 20.")
+# Filtrer pour obtenir les élèves ayant la meilleure note
+meilleurs_eleves = [eleve for eleve, note in resultats.items() if note == meilleure_note]
+
+# Trier ces élèves par ordre alphabétique
+meilleurs_eleves_tries = sorted(meilleurs_eleves)
+
+# Sélectionner le premier élève de la liste triée
+meilleur_eleve = meilleurs_eleves_tries[0]
+
+# Afficher le résultat
+print(meilleur_eleve, resultats[meilleur_eleve])
